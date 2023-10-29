@@ -8,12 +8,12 @@ namespace BankiSzolgaltatasok
 {
     public class MegtakaritasiSzamla : Szamla
     {
-        public double alapkamat = 1.1;
+        static public double alapKamat = 1.1;
         private double kamat;
 
         public MegtakaritasiSzamla(Tulajdonos tulajdonos) : base(tulajdonos)
         {
-            this.kamat = this.alapkamat;
+            this.kamat = alapKamat;
         }
 
         public double Kamat { get => kamat; set => kamat = value; }
@@ -35,7 +35,7 @@ namespace BankiSzolgaltatasok
 
         public void KamatJovairas()
         {
-            this.aktualisEgyenleg = Convert.ToInt32(this.aktualisEgyenleg * kamat);
+            this.aktualisEgyenleg = Convert.ToInt32(this.aktualisEgyenleg * this.kamat);
         }
     }
 }
