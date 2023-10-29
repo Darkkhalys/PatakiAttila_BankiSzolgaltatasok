@@ -16,8 +16,20 @@ namespace BankiSzolgaltatasok
             
         }
 
-        
 
         public int HitelKeret { get => hitelKeret;}
+
+        public override bool Kivesz(int osszeg)
+        {
+            if (osszeg <= AktualisEgyenleg + this.hitelKeret)
+            {
+                this.aktualisEgyenleg = this.aktualisEgyenleg - osszeg;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
